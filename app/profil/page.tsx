@@ -28,7 +28,7 @@ export default function Profil() {
       nim: 'Dosen Pembimbing',
       role: 'Dosen Pembimbing',
       nip: 'NIP. 197001011999031001',
-      image: '/team/dosen-pembimbing.png',
+      image: '/team/dosen-Pembimbing.png',
       special: true
     },
     {
