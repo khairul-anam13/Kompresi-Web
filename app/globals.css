@@ -1,0 +1,259 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Primary: Vibrant Green - Energy & Sustainability */
+  --primary: oklch(0.58 0.25 142.5);
+  --primary-foreground: oklch(1 0 0);
+  
+  /* Secondary: Sky Blue - Learning & Trust */
+  --secondary: oklch(0.60 0.22 257);
+  --secondary-foreground: oklch(1 0 0);
+  
+  /* Accent: Warm Orange - Interactive & Playful */
+  --accent: oklch(0.68 0.22 62);
+  --accent-foreground: oklch(1 0 0);
+  
+  /* Neutrals */
+  --background: oklch(0.98 0.01 257);
+  --foreground: oklch(0.15 0.01 257);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.15 0.01 257);
+  --border: oklch(0.92 0.01 257);
+  --muted: oklch(0.88 0.01 257);
+  --muted-foreground: oklch(0.50 0.01 257);
+  
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(1 0 0);
+  --ring: oklch(0.58 0.25 142.5);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.15 0.01 257);
+  
+  --chart-1: oklch(0.58 0.25 142.5);
+  --chart-2: oklch(0.60 0.22 257);
+  --chart-3: oklch(0.68 0.22 62);
+  --chart-4: oklch(0.62 0.18 200);
+  --chart-5: oklch(0.55 0.20 180);
+  --radius: 1rem;
+  
+  --sidebar: oklch(0.98 0.01 257);
+  --sidebar-foreground: oklch(0.15 0.01 257);
+  --sidebar-primary: oklch(0.58 0.25 142.5);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.68 0.22 62);
+  --sidebar-accent-foreground: oklch(1 0 0);
+  --sidebar-border: oklch(0.92 0.01 257);
+  --sidebar-ring: oklch(0.58 0.25 142.5);
+}
+
+.dark {
+  --primary: oklch(0.72 0.23 142.5);
+  --primary-foreground: oklch(0.12 0.01 257);
+  
+  --secondary: oklch(0.70 0.20 257);
+  --secondary-foreground: oklch(0.12 0.01 257);
+  
+  --accent: oklch(0.78 0.20 62);
+  --accent-foreground: oklch(0.12 0.01 257);
+  
+  --background: oklch(0.10 0.02 257);
+  --foreground: oklch(0.97 0.01 257);
+  --card: oklch(0.16 0.01 257);
+  --card-foreground: oklch(0.97 0.01 257);
+  --border: oklch(0.28 0.01 257);
+  --muted: oklch(0.40 0.01 257);
+  --muted-foreground: oklch(0.70 0.01 257);
+  
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --ring: oklch(0.72 0.23 142.5);
+  --popover: oklch(0.16 0.01 257);
+  --popover-foreground: oklch(0.97 0.01 257);
+  
+  --chart-1: oklch(0.72 0.23 142.5);
+  --chart-2: oklch(0.70 0.20 257);
+  --chart-3: oklch(0.78 0.20 62);
+  --chart-4: oklch(0.74 0.18 200);
+  --chart-5: oklch(0.68 0.20 180);
+  
+  --sidebar: oklch(0.14 0.01 257);
+  --sidebar-foreground: oklch(0.97 0.01 257);
+  --sidebar-primary: oklch(0.72 0.23 142.5);
+  --sidebar-primary-foreground: oklch(0.12 0.01 257);
+  --sidebar-accent: oklch(0.78 0.20 62);
+  --sidebar-accent-foreground: oklch(0.12 0.01 257);
+  --sidebar-border: oklch(0.28 0.01 257);
+  --sidebar-ring: oklch(0.72 0.23 142.5);
+}
+
+/* BACKGROUND STYLES - FIXED */
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  
+  /* Background Image */
+  background-image: url('/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  
+  /* Fallback background color */
+  background-color: #f0f9ff;
+  
+  position: relative;
+}
+
+/* Background overlay - lebih transparan */
+/* Background overlay - solid color for cleaner look */
+.background-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(2px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.dark .background-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Main content area */
+.main-content {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+}
+
+@theme inline {
+  --font-sans: 'Geist', 'Geist Fallback';
+  --font-display: 'Lilita One', 'Geist';
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 6px);
+  --radius-md: calc(var(--radius) - 4px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  
+  /* Apply Lilita One to headings and titles */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+/* Enhanced Liquid Glass Effect - iOS Style */
+@layer components {
+  .glass-button {
+    @apply w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300;
+    @apply bg-white/10 backdrop-blur-xl border border-white/25;
+    @apply text-foreground hover:bg-white/20 hover:border-white/35;
+    @apply hover:shadow-lg hover:shadow-white/10 active:scale-90;
+    @apply font-sans;
+  }
+
+  .glass-button:focus-visible {
+    @apply outline-offset-2 outline-2 outline-primary/60;
+  }
+
+  .dark .glass-button {
+    @apply bg-white/8 border-white/12 hover:bg-white/18 hover:shadow-white/5;
+  }
+
+  /* iOS-style card with liquid glass */
+  .ios-card {
+    @apply bg-white/40 backdrop-blur-xl border border-white/30 rounded-2xl;
+    @apply shadow-lg shadow-black/5 hover:shadow-xl hover:shadow-black/10;
+    @apply transition-all duration-300;
+  }
+
+  .dark .ios-card {
+    @apply bg-white/10 border-white/15 shadow-lg shadow-black/30 hover:shadow-xl hover:shadow-black/40;
+  }
+
+  /* Enhanced rounded corners for iOS feel */
+  .rounded-ios-lg {
+    @apply rounded-3xl;
+  }
+
+  .rounded-ios-md {
+    @apply rounded-2xl;
+  }
+
+  /* Content wrapper dengan background semi-transparent */
+  .content-wrapper {
+    @apply bg-white/60 backdrop-blur-md rounded-2xl border border-white/30;
+  }
+
+  .dark .content-wrapper {
+    @apply bg-black/40 backdrop-blur-md border-white/10;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent;
+  }
+
+  /* Added text stroke effect using CSS text-stroke for Lilita One font */
+  .text-stroke {
+    -webkit-text-stroke: 4.5px rgba(255, 255, 255, 0.8);
+    paint-order: stroke fill;
+  }
+
+  /* Background image utility classes */
+  .bg-image-cover {
+    background-image: url('/background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+}
